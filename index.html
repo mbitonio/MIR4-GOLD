@@ -3,506 +3,339 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MIR4 GOLD 🪙 — Official Store</title>
+<title>MIR4 GOLD 🪙</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --gold:#ffd86b;
-  --gold2:#ffb700;
-  --dark:#0b090c;
-  --accent:#1a1a1a;
-  --glow:0 0 20px rgba(255,215,100,.4);
-  --glow2:0 0 40px rgba(255,200,50,.6);
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Poppins,system-ui,sans-serif;
-  background:radial-gradient(circle at 50% 0%,#1a1200 0%,#090807 70%);
-  color:white;
-  overflow-x:hidden;
-}
-.wrap{max-width:720px;margin:auto;padding:20px 16px 140px;text-align:center}
+  :root{
+    --txt:#fff7fb; --mut:#ccb9c1;
+    --gold:#ffd86b; --gold-2:#ffb700;
+    --green:#21d072; --blue:#1877f2; --discord:#5865f2;
+    --dark:#0b090c;
+    --border: rgba(255,200,80,.12);
+    --glow: 0 0 20px rgba(255,200,60,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;color:var(--txt);font-family:Poppins,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 50% 0%, #0b0708 0%, #060405 80%);min-height:100%}
+  .wrap{max-width:760px;margin:auto;padding:18px}
+  .title{display:flex;gap:10px;justify-content:center;font-weight:800;font-size:22px;letter-spacing:.4px;margin:6px 0 10px;color:var(--gold);text-shadow:0 0 12px rgba(255,200,80,.12)}
 
-/* Animated background glow */
-body::before{
-  content:"";
-  position:fixed;inset:0;z-index:-1;
-  background:radial-gradient(ellipse at center,rgba(255,215,90,.06),transparent 70%);
-  animation:bgpulse 5s ease-in-out infinite alternate;
-}
-@keyframes bgpulse{
-  from{opacity:.5;transform:scale(1)}
-  to{opacity:.8;transform:scale(1.08)}
-}
+  /* Logo */
+  .logoWrap{display:grid;place-items:center;margin:6px 0 12px}
+  .logo{width:min(44vw,160px);aspect-ratio:1/1;border-radius:999px;position:relative;display:grid;place-items:center;background:radial-gradient(120px 110px at 50% 50%, #0e0a0d 40%, #000 100%);box-shadow:0 0 0 8px rgba(0,0,0,.55); cursor:pointer}
+  .logo::before{content:"";position:absolute;inset:6px;border-radius:999px;background:conic-gradient(#ffd86b,#ffb700,#ffd86b);filter:blur(.8px);animation:spin 7s linear infinite;opacity:.9}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .logo img{width:78%;border-radius:999px;box-shadow:0 0 24px rgba(255,200,60,.12)}
 
-/* Title */
-.title{
-  font-weight:800;
-  font-size:26px;
-  letter-spacing:.6px;
-  color:var(--gold);
-  text-shadow:0 0 20px rgba(255,210,70,.6);
-  margin-bottom:10px;
-}
+  .owner{margin:10px auto 8px;display:flex;gap:10px;align-items:center;justify-content:center;padding:8px 12px;border-radius:14px;background:linear-gradient(180deg,#12100d,#0b0a08);border:1px solid rgba(255,255,255,.03);font-weight:800;color:var(--gold);max-width:560px}
 
-/* Logo with animated gold ring */
-.logoWrap{display:grid;place-items:center;margin:12px 0 18px;position:relative}
-.logo{
-  width:min(45vw,180px);
-  aspect-ratio:1/1;
-  border-radius:999px;
-  position:relative;
-  overflow:hidden;
-  display:grid;
-  place-items:center;
-  background:#111;
-  box-shadow:inset 0 0 20px rgba(255,200,50,.08);
-}
-.logo::before{
-  content:"";
-  position:absolute;inset:0;border-radius:999px;
-  background:conic-gradient(from 0deg,#ffb700,#ffe08c,#ffb700);
-  animation:ringspin 4s linear infinite;
-  z-index:-1;
-  mix-blend-mode:screen;
-  opacity:.95;
-}
-@keyframes ringspin{to{transform:rotate(360deg)}}
-.logo img{width:78%;border-radius:999px;animation:floaty 3s ease-in-out infinite alternate;}
-@keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+  /* Rate display (single pill) */
+  .ratePill{background:linear-gradient(180deg,#181414,#0f0e0d);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center;box-shadow:var(--glow);margin:10px 0}
+  .ratePill .big{font-weight:900;font-size:20px;color:var(--gold)}
+  .ratePill .sub{font-size:13px;color:var(--mut);margin-top:4px}
 
-/* Owner info */
-.owner{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 14px;
-  background:linear-gradient(90deg,#1d1b12,#141208);
-  border:1px solid rgba(255,215,100,.2);
-  border-radius:14px;
-  box-shadow:var(--glow);
-  font-weight:700;
-  color:var(--gold);
-  margin-bottom:18px;
-}
+  /* Section */
+  .section{background:linear-gradient(180deg,#0f0e10,#0b0a0c);border:1px solid rgba(255,255,255,.04);border-radius:14px;padding:14px;box-shadow:0 0 30px rgba(0,0,0,.4)}
+  .label{font-size:13px;color:#ccb9c1;margin:6px 2px}
+  .in{width:100%;border:1px solid rgba(255,200,80,.06);background:#0a0909;color:#fff;padding:12px;border-radius:10px;font-size:16px;outline:none;box-shadow:inset 0 0 8px rgba(255,200,80,.02)}
+  .in:focus{border-color:var(--gold);box-shadow:0 0 12px rgba(255,200,80,.08)}
+  .hint{font-size:12px;color:#bdaea0;margin-top:8px}
+  .warn{margin-top:8px;font-size:13px;color:#ff9b85;display:none;text-align:center}
 
-/* Rate display */
-.rateBox{
-  padding:14px;
-  background:linear-gradient(180deg,#1a1a1a,#0c0c0c);
-  border:1px solid rgba(255,215,100,.15);
-  border-radius:14px;
-  box-shadow:var(--glow);
-  color:var(--gold);
-  font-weight:700;
-  margin-bottom:14px;
-}
-.rateBox span{
-  font-size:20px;
-  color:var(--gold2);
-  display:block;
-  margin-top:4px;
-}
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:none;border-radius:12px;padding:12px 14px;font-weight:800;letter-spacing:.2px;cursor:pointer;user-select:none}
+  .btn.green{background:linear-gradient(90deg,var(--green),#17a85a);color:#04210f;box-shadow:0 12px 36px rgba(33,208,114,.12);font-size:16px;width:100%}
+  .btn[disabled]{opacity:.55;filter:grayscale(.25);cursor:not-allowed}
 
-/* Form Section */
-.section{
-  background:linear-gradient(180deg,#15130f,#0e0d09);
-  border:1px solid rgba(255,215,100,.12);
-  border-radius:14px;
-  padding:14px;
-  box-shadow:0 0 30px rgba(255,200,60,.06);
-  text-align:left;
-}
-.label{font-size:13px;color:#ccc;margin:8px 2px 4px}
-.in{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:1px solid rgba(255,215,100,.14);
-  background:#0b0907;
-  color:white;
-  font-size:16px;
-  outline:none;
-  box-shadow:inset 0 0 10px rgba(255,215,100,.05);
-  transition:all .18s;
-}
-.in:focus{
-  border-color:var(--gold);
-  box-shadow:0 0 10px rgba(255,215,100,.25);
-}
-.hint{font-size:12px;color:#bfb0a0;margin-top:8px}
-.warn{margin-top:8px;font-size:13px;color:#ff9b85;display:none;text-align:center}
+  /* Payment rows */
+  .pay{margin-top:12px}
+  .payRow{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#0e1418,#06080a);border:1px solid rgba(255,255,255,.03);padding:10px;border-radius:10px;margin-bottom:8px;cursor:pointer}
+  .payLeft{display:flex;gap:10px;align-items:center}
+  .icon{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:800}
+  .gicon{background:linear-gradient(180deg,#2d8bef,#1b6fe0)}
+  .goicon{background:linear-gradient(180deg,#00d6e7,#00b3c9);color:#00353a}
+  .qrBtn{background:transparent;border:1px solid rgba(255,255,255,.04);padding:8px;border-radius:8px;color:#cfe4ff}
 
-/* suggestion list */
-.suggestions{position:relative}
-.suggestions-list{position:absolute;left:0;right:0;top:100%;background:#0b0a08;border:1px solid rgba(255,255,255,.03);border-radius:8px;margin-top:8px;box-shadow:0 10px 30px rgba(0,0,0,.6);max-height:220px;overflow:auto;z-index:40}
-.suggest-item{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.02);cursor:pointer}
-.suggest-item:hover{background:rgba(255,215,100,.04)}
+  /* Social links */
+  .soc{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+  .btnlink{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px;border-radius:10px;text-decoration:none;color:#fff;font-weight:700}
+  .fb{background:#1877f2}
+  .dc{background:#5865f2}
 
-/* Button */
-.btn{
-  background:linear-gradient(90deg,#ffd86b,#ffb700);
-  border:none;
-  border-radius:12px;
-  padding:12px;
-  font-weight:800;
-  font-size:16px;
-  color:#201700;
-  width:100%;
-  box-shadow:0 0 30px rgba(255,215,100,.2);
-  margin-top:12px;
-  cursor:pointer;
-  transition:transform .08s;
-}
-.btn:active{transform:scale(.99)}
-.btn[disabled]{opacity:.5;cursor:not-allowed;filter:grayscale(.3)}
+  /* Notice / Thank you */
+  .thank{
+    margin-top:14px;padding:12px;border-radius:12px;background:linear-gradient(180deg,#11100b,#060504);border:1px solid rgba(255,200,80,.06);color:var(--gold);text-align:center;display:none;
+    box-shadow:0 0 30px rgba(255,200,80,.08);
+  }
+  .thank.show{display:block;animation:popIn .36s ease both}
+  @keyframes popIn{from{transform:translateY(8px) scale(.98);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
 
-/* Payment boxes */
-.pay{
-  background:#11100b;
-  border:1px solid rgba(255,215,100,.08);
-  border-radius:12px;
-  margin-top:14px;
-  padding:12px;
-}
-.payRow{
-  background:#191612;
-  border:1px solid rgba(255,215,100,.08);
-  padding:10px 12px;
-  border-radius:10px;
-  margin:8px 0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  cursor:pointer;
-  transition:all .14s;
-}
-.payRow:hover{background:#26221a}
-.icon{
-  width:36px;height:36px;border-radius:8px;
-  display:grid;place-items:center;
-  color:#fff;font-weight:900;
-  box-shadow:0 0 10px rgba(255,215,100,.18);
-  flex-shrink:0;
-}
-.icon.gc{background:linear-gradient(180deg,#2d8bef,#1b6fe0)}
-.icon.go{background:linear-gradient(180deg,#00d6e7,#00b3c9);color:#00353a;font-weight:900}
-.icon.svg{background:transparent;box-shadow:none}
+  /* Popups */
+  .popup{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:80}
+  .cardPop{width:min(92vw,420px);background:linear-gradient(180deg,#0f0d10,#0b0a0a);border-radius:14px;padding:18px;text-align:center;border:1px solid rgba(255,200,80,.08);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  .cardPop h3{color:var(--gold);margin:0 0 6px}
+  .cardPop p{color:#e9d9b8;margin:6px 0 12px}
 
-/* social */
-.soc{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
-.btnlink{
-  text-decoration:none;
-  padding:10px;
-  border-radius:10px;
-  font-weight:700;
-  color:#fff;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  box-shadow:0 6px 18px rgba(0,0,0,.4);
-}
-.fb{background:#1877f2}
-.dc{background:#5865f2}
-
-/* Popups */
-.popup{
-  position:fixed;inset:0;display:none;place-items:center;
-  background:rgba(0,0,0,.75);z-index:100;
-  animation:fadeIn .25s ease;
-}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.cardPop{
-  background:linear-gradient(180deg,#14120a,#0c0b07);
-  border:1px solid rgba(255,215,100,.25);
-  border-radius:14px;
-  padding:18px;
-  text-align:center;
-  color:white;
-  width:min(92vw,420px);
-  box-shadow:0 0 40px rgba(255,215,100,.22);
-  animation:pop .26s ease;
-}
-@keyframes pop{from{transform:translateY(8px) scale(.98);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
-.cardPop h3{color:var(--gold2)}
-.cardPop button{
-  background:linear-gradient(90deg,#ffd86b,#ffb700);
-  border:none;
-  padding:10px 18px;
-  border-radius:10px;
-  font-weight:800;
-  margin-top:12px;
-  cursor:pointer;
-}
-
-/* QR image styling */
-.qrImg{max-width:86vw;max-height:60vh;border-radius:8px;border:1px solid rgba(255,255,255,.08);box-shadow:0 12px 36px rgba(0,0,0,.45);display:block;margin:12px auto}
-
-/* Thank you notice */
-.notice{
-  background:linear-gradient(180deg,#14110a,#0b0a07);
-  border:1px solid rgba(255,215,100,.12);
-  border-radius:12px;
-  padding:12px;
-  margin-top:14px;
-  color:#ffd86b;
-  text-shadow:0 0 8px rgba(255,215,100,.35);
-  animation:shine 3s linear infinite;
-}
-@keyframes shine{
-  0%,100%{text-shadow:0 0 8px rgba(255,215,100,.35);}
-  50%{text-shadow:0 0 20px rgba(255,230,120,.6);}
-}
-
-/* small screens */
-@media (max-width:560px){
-  .icon{width:32px;height:32px}
-  .logo{width:150px}
-}
+  /* QR image */
+  .qrImg{max-width:86vw;max-height:60vh;border-radius:8px;border:1px solid rgba(255,255,255,.06);box-shadow:0 12px 36px rgba(0,0,0,.45);display:block;margin:8px auto}
+  @media(max-width:560px){ .logo{width:140px} .icon{width:32px;height:32px} }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="title">MIR4 GOLD 🪙 STORE</div>
+  <div class="wrap">
+    <div class="title">MIR4 GOLD 🪙</div>
 
-  <div class="logoWrap">
-    <div class="logo" aria-hidden="true">
-      <!-- Put your logo file at same folder named "logo.png" -->
-      <img src="logo.png" alt="MIR4 GOLD logo">
-    </div>
-  </div>
-
-  <div class="owner">🏪 MOISES TRAJANO BITONIO</div>
-
-  <div class="rateBox" aria-live="polite">
-    <div>Current Exchange Rate</div>
-    <span>₱1 = 4.5 🪙 GOLD</span>
-  </div>
-
-  <div class="section" aria-labelledby="orderform">
-    <div id="orderform" class="label">Order Details</div>
-
-    <div class="label">Enter GOLD 🪙</div>
-    <input id="gold" class="in" placeholder="e.g. 2250">
-
-    <div class="label" style="margin-top:10px">Enter PHP ₱</div>
-    <input id="phpIn" class="in" placeholder="e.g. 500.00">
-
-    <div class="label" style="margin-top:10px">Server (Required — fill up)</div>
-    <div class="suggestions">
-      <input id="serverIn" class="in" placeholder="e.g. ASIA-022" autocomplete="off">
-      <div id="suggestList" class="suggestions-list" style="display:none"></div>
-    </div>
-
-    <div class="hint">Minimum ₱500 total. Fill server name (use suggestion list or type manually).</div>
-    <div id="warn" class="warn">Minimum ₱500 required & server name needed.</div>
-
-    <button id="buyBtn" class="btn" disabled>✅ COPY & SEND TO SELLER</button>
-  </div>
-
-  <div class="pay" aria-hidden="false">
-    <div id="gcashRow" class="payRow" title="Tap to copy GCash number">
-      <div style="display:flex;align-items:center;gap:12px">
-        <div class="icon gc" aria-hidden="true">G</div>
-        <div style="text-align:left">
-          <div style="font-weight:800">GCash</div>
-          <div style="font-size:13px;color:#d6caa8">09162466318 — MOISES B.</div>
-        </div>
+    <div class="logoWrap">
+      <div class="logo" id="logoBtn" title="MIR4 GOLD">
+        <img src="logo.png" alt="Logo">
       </div>
-      <div style="font-size:13px;color:#bdb0a0">Copy</div>
     </div>
 
-    <div id="goRow" class="payRow" title="Tap to copy GoTyme account">
-      <div style="display:flex;align-items:center;gap:12px">
-        <div class="icon go" aria-hidden="true">Go</div>
-        <div style="text-align:left">
-          <div style="font-weight:800">GoTyme</div>
-          <div style="font-size:13px;color:#d6caa8">014664932955 — MOISES BITONIO</div>
+    <div class="owner">🏪 MOISES TRAJANO BITONIO</div>
+
+    <div class="ratePill" role="status" aria-live="polite">
+      <div class="big">₱1 = 4.5 🪙 GOLD</div>
+      <div class="sub">₱0.2222 per GOLD • Minimum ₱500</div>
+    </div>
+
+    <div class="section" aria-labelledby="orderform">
+      <div id="orderform" class="label">Order Details</div>
+
+      <div class="label">Enter GOLD 🪙</div>
+      <input id="gold" class="in" inputmode="numeric" autocomplete="off" placeholder="e.g. 2250">
+
+      <div class="label" style="margin-top:10px">ENTER PHP ₱</div>
+      <input id="phpIn" class="in" inputmode="decimal" autocomplete="off" placeholder="e.g. 500.00">
+
+      <div class="label" style="margin-top:10px">Server (Required)</div>
+      <input id="serverIn" class="in" placeholder="Type server (e.g., ASIA-022)" autocomplete="off">
+      <div class="hint">Fill server exactly para maiwasan delay.</div>
+
+      <div id="warn" class="warn">Minimum ₱500 required and Server is needed.</div>
+
+      <button id="buyBtn" class="btn green" disabled>
+        <!-- simple inline SVG icon + text -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <path d="M3 12h13" stroke="#04210f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14 5l7 7-7 7" stroke="#04210f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        COPY AND SEND TO SELLER
+      </button>
+
+    </div>
+
+    <div class="pay">
+      <div id="gcashRow" class="payRow" title="Tap to copy GCash number">
+        <div class="payLeft">
+          <div class="icon gicon">G</div>
+          <div style="text-align:left">
+            <div style="font-weight:800">GCash</div>
+            <div style="font-size:13px;color:var(--mut)">09162466318 — MOISES B.</div>
+          </div>
         </div>
+        <button id="showQR" class="qrBtn" aria-label="Show GCash QR">Show QR</button>
       </div>
-      <div style="font-size:13px;color:#bdb0a0">Copy</div>
+
+      <div id="goRow" class="payRow" title="Tap to copy GoTyme account">
+        <div class="payLeft">
+          <div class="icon goicon">Go</div>
+          <div style="text-align:left">
+            <div style="font-weight:800">GoTyme</div>
+            <div style="font-size:13px;color:var(--mut)">014664932955 — MOISES BITONIO</div>
+          </div>
+        </div>
+        <button id="showGoQR" class="qrBtn" aria-label="Show GoTyme QR">Show QR</button>
+      </div>
+
+      <div class="soc" role="navigation" aria-label="Feedback links">
+        <a class="btnlink fb" href="https://www.facebook.com/share/p/17MiaRJ24J/" target="_blank" rel="noopener">
+          <!-- FB svg -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.01 3.66 9.17 8.44 9.93v-7.02H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46 h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.93z"/></svg>
+          Facebook
+        </a>
+
+        <a class="btnlink dc" href="https://discord.gg/QkdVz5mh" target="_blank" rel="noopener">
+          <!-- Discord svg -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M20.317 4.369a19.791 19.791 0 00-4.885-1.515.07.07 0 00-.074.035c-.21.38-.444.874-.608 1.26-1.844-.276-3.68-.276-5.486 0-.164-.4-.405-.878-.617-1.26a.066.066 0 00-.075-.034 19.736 19.736 0 00-4.885 1.515.047.047 0 00-.021.018C2.5 9.03 1.8 13.55 2.58 18.03c.014.05.056.082.104.08 2.05-.15 3.96-.87 5.57-1.91.24-.17.27-.29.2-.52-.21-.77-.36-1.57-.45-2.39a.048.048 0 01.026-.046c.57-.27 1.14-.58 1.67-.93a.05.05 0 01.052 0c3.34 2.31 7.04 2.31 10.36 0a.05.05 0 01.053 0c.53.35 1.09.66 1.66.93a.048.048 0 01.026.046c-.088.82-.24 1.62-.45 2.39-.07.23-.03.35.2.52 1.61 1.04 3.52 1.76 5.57 1.91.05.002.09-.03.1-.08.79-4.48.08-8.99-3.68-13.64a.035.035 0 00-.02-.018zM9.5 14.02c-1.07 0-1.95-.97-1.95-2.16 0-1.19.86-2.16 1.95-2.16 1.09 0 1.97.97 1.95 2.16 0 1.19-.86 2.16-1.95 2.16zm5 0c-1.07 0-1.95-.97-1.95-2.16 0-1.19.86-2.16 1.95-2.16 1.09 0 1.97.97 1.95 2.16 0 1.19-.86 2.16-1.95 2.16z"/></svg>
+          Discord
+        </a>
+      </div>
+
     </div>
 
-    <div class="soc" role="navigation" aria-label="Feedback links">
-      <a class="btnlink fb" href="https://www.facebook.com/share/p/17MiaRJ24J/" target="_blank" rel="noopener" title="Facebook feedback">
-        <!-- Facebook SVG icon -->
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,.3))">
-          <path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.01 3.66 9.17 8.44 9.93v-7.02H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.93z"/>
-        </svg>
-        Facebook
-      </a>
-
-      <a class="btnlink dc" href="https://discord.gg/QkdVz5mh" target="_blank" rel="noopener" title="Discord feedback">
-        <!-- Discord SVG icon -->
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,.3))">
-          <path d="M20.317 4.369a19.791 19.791 0 00-4.885-1.515.07.07 0 00-.074.035c-.21.38-.444.874-.608 1.26-1.844-.276-3.68-.276-5.486 0-.164-.4-.405-.878-.617-1.26a.066.066 0 00-.075-.034 19.736 19.736 0 00-4.885 1.515.047.047 0 00-.021.018C2.5 9.03 1.8 13.55 2.58 18.03c.014.05.056.082.104.08 2.05-.15 3.96-.87 5.57-1.91.24-.17.27-.29.2-.52-.21-.77-.36-1.57-.45-2.39a.048.048 0 01.026-.046c.57-.27 1.14-.58 1.67-.93a.05.05 0 01.052 0c3.34 2.31 7.04 2.31 10.36 0a.05.05 0 01.053 0c.53.35 1.09.66 1.66.93a.048.048 0 01.026.046c-.088.82-.24 1.62-.45 2.39-.07.23-.03.35.2.52 1.61 1.04 3.52 1.76 5.57 1.91.05.002.09-.03.1-.08.79-4.48.08-8.99-3.68-13.64a.035.035 0 00-.02-.018zM9.5 14.02c-1.07 0-1.95-.97-1.95-2.16 0-1.19.86-2.16 1.95-2.16 1.09 0 1.97.97 1.95 2.16 0 1.19-.86 2.16-1.95 2.16zm5 0c-1.07 0-1.95-.97-1.95-2.16 0-1.19.86-2.16 1.95-2.16 1.09 0 1.97.97 1.95 2.16 0 1.19-.86 2.16-1.95 2.16z"/>
-        </svg>
-        Discord
-      </a>
+    <div class="thank" id="thankMsg" aria-live="polite">
+      <strong>✅ Thank you for your purchase!</strong>
+      <div style="margin-top:6px;color:#e9d9b8" id="thankDetails">We've copied your order message — paste it into Messenger to proceed.</div>
     </div>
   </div>
 
-  <div class="notice" id="thankyou">
-    🎉 Thank you for trusting MIR4 GOLD!  
-    <br>After payment, send your order details to our official Messenger.  
-    <br>Enjoy your GOLD and happy gaming! ⚔️
+  <!-- BUY Popup (Thank you) -->
+  <div id="buyPopup" class="popup" role="dialog" aria-hidden="true">
+    <div class="cardPop" role="document">
+      <h3>Thank you ✔</h3>
+      <p id="buyMsg">Your order message was copied. Paste it into Messenger to complete the purchase.</p>
+      <div id="buyOrderId" style="margin-top:8px;font-weight:800;color:var(--gold)"></div>
+      <div style="margin-top:12px">
+        <button id="closePop" class="btn" style="background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#2b1700;padding:10px 18px;border-radius:10px">OK</button>
+      </div>
+    </div>
   </div>
-</div>
 
-<!-- BUY Popup -->
-<div class="popup" id="buyPopup" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="cardPop">
-    <h3>Order Copied ✔</h3>
-    <p id="buyMsg">Your order message was copied. Paste it into Messenger to complete the purchase.</p>
-    <div id="buyOrderId" style="margin-top:8px;font-weight:800;color:var(--gold2)"></div>
-    <button id="closePop" type="button">OK</button>
+  <!-- GCash QR Popup -->
+  <div id="qrPopup" class="popup" role="dialog" aria-hidden="true">
+    <div class="cardPop">
+      <h3>GCash QR</h3>
+      <p>Scan to pay • <strong>MOISES B.</strong></p>
+      <img src="gcash-qr.png" alt="GCash QR" class="qrImg" onerror="this.style.display='none'">
+      <div style="margin-top:12px"><button id="qrOk" class="btn" style="background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#2b1700;padding:10px 18px;border-radius:10px">Close</button></div>
+    </div>
   </div>
-</div>
 
-<!-- GCash Popup (shows QR + copy) -->
-<div class="popup" id="gcashPopup" role="dialog" aria-hidden="true">
-  <div class="cardPop">
-    <h3>GCash</h3>
-    <p><strong>09162466318 — MOISES B.</strong></p>
-    <!-- Include qr image file "gcash-qr.png" in same folder -->
-    <img src="gcash-qr.png" alt="GCash QR" class="qrImg" onerror="this.style.display='none'">
-    <button id="gcashOk" type="button">OK</button>
+  <!-- GoTyme QR Popup -->
+  <div id="goQRPopup" class="popup" role="dialog" aria-hidden="true">
+    <div class="cardPop">
+      <h3>GoTyme QR</h3>
+      <p>Scan to pay • <strong>MOISES BITONIO</strong></p>
+      <img src="gotyme-qr.png" alt="GoTyme QR" class="qrImg" onerror="this.style.display='none'">
+      <div style="margin-top:12px"><button id="goQROk" class="btn" style="background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#2b1700;padding:10px 18px;border-radius:10px">Close</button></div>
+    </div>
   </div>
-</div>
-
-<!-- GoTyme Popup -->
-<div class="popup" id="goPopup" role="dialog" aria-hidden="true">
-  <div class="cardPop">
-    <h3>GoTyme</h3>
-    <p><strong>014664932955 — MOISES BITONIO</strong></p>
-    <!-- Include qr image file "gotyme-qr.png" in same folder -->
-    <img src="gotyme-qr.png" alt="GoTyme QR" class="qrImg" onerror="this.style.display='none'">
-    <button id="goOk" type="button">OK</button>
-  </div>
-</div>
 
 <script>
-document.addEventListener("DOMContentLoaded",()=>{
-  const $ = id => document.getElementById(id);
-  const clean = v => String(v ?? '').replace(/[^\d.]/g,'');
-  const toNum = v => { const m = clean(v).match(/^\d+(?:\.\d+)?/); return m ? parseFloat(m[0]) : 0; };
-  const toInt = v => { const m = clean(v).match(/^\d+/); return m ? parseInt(m[0],10) : 0; };
-  const fmt = n => Number(n).toLocaleString(undefined,{minimumFractionDigits:2, maximumFractionDigits:2});
+(function(){
+  document.addEventListener('DOMContentLoaded', ()=> {
+    const $ = id => document.getElementById(id);
+    const clean = v => String(v ?? '').replace(/[^\d.]/g,'');
+    const toNum = v => { const m = clean(v).match(/^\d+(?:\.\d+)?/); return m? parseFloat(m[0]) : 0; };
+    const toInt = v => { const m = clean(v).match(/^\d+/); return m? parseInt(m[0],10) : 0; };
+    const fmt = n => Number(n).toLocaleString(undefined,{minimumFractionDigits:2, maximumFractionDigits:2});
 
-  const GOLD_PER_PHP = 4.5;
-  const PRICE_PER_GOLD = 1 / GOLD_PER_PHP;
-  const MIN_PHP = 500;
+    // Rate settings
+    const GOLD_PER_PHP = 4.5;
+    const PRICE_PER_GOLD = 1 / GOLD_PER_PHP; // ~0.2222
+    const MIN_PHP = 500;
 
-  const servers = [
-    "破军","8888","DaddyKim","DaddyVerse","DaddyWorld","HOF1","HOF2","HOF3","HOF4","HOF5","HOF6",
-    "HERO","KINGS","Kings2","Kings3","Kings4","xaou","Chess","ISEKAI","ManiTW","PROSGARD","X",
-    "MEGA","Sky","Tokyo","Bangkok","Taipei","Asia014","Asia015","Asia016","Asia017","Asia018",
-    "Asia019","Asia020","Asia021","Asia022","Asia023","Asia024","Asia025","Asia026","Asia027",
-    "Asia028","Asia029","Asia030","Asia031","Asia032","Asia033","Asia034","Asia035","Asia036",
-    "Asia037","Asia038","Asia039","Asia040","Asia041","Asia042","Asia043"
-  ];
+    const goldEl = $('gold'), phpEl = $('phpIn'), serverEl = $('serverIn');
+    const buyBtn = $('buyBtn'), warn = $('warn'), thankMsg = $('thankMsg');
+    const buyPopup = $('buyPopup'), closePop = $('closePop'), buyOrderId = $('buyOrderId');
 
-  // DOM
-  const goldEl = $("gold"), phpEl = $("phpIn"), serverEl = $("serverIn");
-  const buyBtn = $("buyBtn"), warn = $("warn"), suggestList = $("suggestList");
-  const buyPopup = $("buyPopup"), closePop = $("closePop");
-  const gcashRow = $("gcashRow"), gcashPopup = $("gcashPopup"), gcashOk = $("gcashOk");
-  const goRow = $("goRow"), goPopup = $("goPopup"), goOk = $("goOk");
+    let lastEdited = null;
 
-  // Suggestion helpers
-  function filterServers(q){
-    const v = String(q||'').trim();
-    if(!v){ suggestList.style.display='none'; suggestList.innerHTML=''; return; }
-    const qlow = v.toLowerCase();
-    const matches = servers.filter(s=>s.toLowerCase().includes(qlow)).slice(0,80);
-    if(matches.length===0){ suggestList.style.display='none'; suggestList.innerHTML=''; return; }
-    suggestList.innerHTML = matches.map(s=>`<div class="suggest-item" data-val="${escapeHtml(s)}">${escapeHtml(s)}</div>`).join('');
-    suggestList.style.display='block';
-    Array.from(suggestList.children).forEach(ch=>{
-      ch.addEventListener('click', ()=>{
-        serverEl.value = ch.getAttribute('data-val');
-        suggestList.style.display='none';
-        recalc();
-      });
+    function goldFromPHP(p){ return Math.floor((p || 0) * GOLD_PER_PHP); }
+    function phpFromGold(g){ return (g || 0) * PRICE_PER_GOLD; }
+
+    function recalc(){
+      let g = toInt(goldEl.value);
+      let p = toNum(phpEl.value);
+
+      if(lastEdited === 'p'){
+        g = goldFromPHP(p);
+        goldEl.value = g? String(g) : '';
+      } else if(lastEdited === 'g'){
+        p = phpFromGold(g);
+        phpEl.value = p? fmt(p) : '';
+      } else {
+        if(!g && p){ g = goldFromPHP(p); goldEl.value = g? String(g) : ''; }
+        if(g && !p){ p = phpFromGold(g); phpEl.value = p? fmt(p) : ''; }
+      }
+
+      const effectivePHP = p || (g ? phpFromGold(g) : 0);
+      const serverFilled = serverEl.value && serverEl.value.trim().length > 0;
+      const ok = effectivePHP >= MIN_PHP && serverFilled;
+
+      warn.style.display = ok ? 'none' : 'block';
+      buyBtn.disabled = !ok;
+    }
+
+    ['input','keyup','change'].forEach(ev=>{
+      goldEl.addEventListener(ev, ()=>{ lastEdited = 'g'; recalc(); });
+      phpEl.addEventListener(ev, ()=>{ lastEdited = 'p'; recalc(); });
+      serverEl.addEventListener(ev, ()=> recalc());
     });
-  }
-  function escapeHtml(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-  document.addEventListener('click', (e)=>{ if(!e.target.closest('.suggestions')){ suggestList.style.display='none'; } });
+    recalc();
 
-  let lastEdited = null;
-  function recalc(){
-    let g = toInt(goldEl.value);
-    let p = toNum(phpEl.value);
+    // Buy: copy order + show thank you popup + show thank message area
+    buyBtn.addEventListener('click', async ()=>{
+      let g = toInt(goldEl.value);
+      let p = toNum(phpEl.value);
+      if(!g && p) g = goldFromPHP(p);
+      if(!p && g) p = phpFromGold(g);
+      if(!serverEl.value || !serverEl.value.trim()) { recalc(); return; }
+      if(p < MIN_PHP) { recalc(); return; }
 
-    if(lastEdited === 'p'){
-      g = Math.floor(p * GOLD_PER_PHP);
-      goldEl.value = g ? String(g) : '';
-    } else if(lastEdited === 'g'){
-      p = g * PRICE_PER_GOLD;
-      phpEl.value = p ? fmt(p) : '';
-    } else {
-      if(!g && p){ g = Math.floor(p * GOLD_PER_PHP); goldEl.value = g ? String(g) : ''; }
-      if(g && !p){ p = g * PRICE_PER_GOLD; phpEl.value = p ? fmt(p) : ''; }
-    }
+      const rid = `MIR4G-${Date.now().toString(36).toUpperCase().slice(-6)}`;
+      const totalPHP = fmt(p);
+      const msg = `BUY ORDER\nGold: ${g} 🪙\nServer: ${serverEl.value.trim()}\nRate: ₱1 = ${GOLD_PER_PHP} GOLD (₱${PRICE_PER_GOLD.toFixed(4)} / GOLD)\nTotal: ₱${totalPHP}\nGCash: 09162466318 (MOISES B.)\nReceipt ID: ${rid}`;
 
-    const effectivePHP = p || (g ? g * PRICE_PER_GOLD : 0);
-    const serverFilled = serverEl.value && serverEl.value.trim().length > 0;
-    const ok = effectivePHP >= MIN_PHP && serverFilled;
+      try{ await navigator.clipboard.writeText(msg); }catch(e){ /* ignore */ }
 
-    warn.style.display = ok ? 'none' : 'block';
-    buyBtn.disabled = !ok;
-  }
+      // Show Buy popup (Thank you)
+      buyOrderId.textContent = `Receipt ID: ${rid}`;
+      buyPopup.style.display = 'grid';
+      buyPopup.setAttribute('aria-hidden','false');
 
-  ["input","keyup","change"].forEach(ev=>{
-    goldEl.addEventListener(ev, ()=>{ lastEdited='g'; recalc(); });
-    phpEl.addEventListener(ev, ()=>{ lastEdited='p'; recalc(); });
-    serverEl.addEventListener('input', ()=>{ filterServers(serverEl.value); recalc(); });
+      // Also show inline thank you message and order summary
+      const td = document.getElementById('thankDetails');
+      if(td){
+        td.innerHTML = `You will receive <strong>${g.toLocaleString()}</strong> GOLD for <strong>₱${totalPHP}</strong>.<br> Paste the copied order in Messenger to proceed.`;
+        document.getElementById('thankMsg').classList.add('show');
+      }
+    });
+
+    closePop.addEventListener('click', ()=> {
+      buyPopup.style.display = 'none';
+      buyPopup.setAttribute('aria-hidden','true');
+    });
+
+    // GCash QR
+    $('showQR').addEventListener('click', ()=> {
+      const modal = $('qrPopup');
+      modal.style.display = 'grid';
+      modal.setAttribute('aria-hidden','false');
+    });
+    $('qrOk').addEventListener('click', ()=> {
+      const modal = $('qrPopup');
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+    });
+
+    // GoTyme QR
+    $('showGoQR').addEventListener('click', ()=> {
+      const modal = $('goQRPopup');
+      modal.style.display = 'grid';
+      modal.setAttribute('aria-hidden','false');
+    });
+    $('goQROk').addEventListener('click', ()=> {
+      const modal = $('goQRPopup');
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+    });
+
+    // Copy numbers when clicking pay rows
+    $('gcashRow').addEventListener('click', async ()=> {
+      try{ await navigator.clipboard.writeText('09162466318'); }catch(e){}
+      // small visual feedback: temporarily change button text
+      const old = $('showQR').textContent;
+      $('showQR').textContent = 'Copied';
+      setTimeout(()=> $('showQR').textContent = old, 1200);
+    });
+    $('goRow').addEventListener('click', async ()=> {
+      try{ await navigator.clipboard.writeText('014664932955'); }catch(e){}
+      const old = $('showGoQR').textContent;
+      $('showGoQR').textContent = 'Copied';
+      setTimeout(()=> $('showGoQR').textContent = old, 1200);
+    });
+
+    // Accessibility: close popups with Escape
+    document.addEventListener('keydown',(e)=>{
+      if(e.key === 'Escape'){
+        ['buyPopup','qrPopup','goQRPopup'].forEach(id=>{
+          const el = document.getElementById(id);
+          if(el && el.style.display === 'grid'){ el.style.display = 'none'; el.setAttribute('aria-hidden','true'); }
+        });
+      }
+    });
   });
-  recalc();
-
-  // BUY -> copy
-  buyBtn.addEventListener('click', async ()=>{
-    let g = toInt(goldEl.value);
-    let p = toNum(phpEl.value);
-    if(!g && p) g = Math.floor(p * GOLD_PER_PHP);
-    if(!p && g) p = g * PRICE_PER_GOLD;
-    if(!serverEl.value || !serverEl.value.trim()) return recalc();
-
-    const rid = `MIR4G-${Date.now().toString(36).toUpperCase().slice(-6)}`;
-    const msg = `BUY ORDER\nGold: ${g} 🪙\nServer: ${serverEl.value.trim()}\nRate: ₱1 = 4.5 🪙 GOLD (₱${PRICE_PER_GOLD.toFixed(4)} / GOLD)\nTotal: ₱${fmt(p)}\nGCash: 09162466318 (MOISES B.)\nReceipt ID: ${rid}`;
-    try{ await navigator.clipboard.writeText(msg); }catch(e){}
-    $("buyOrderId").textContent = `Receipt ID: ${rid}`;
-    buyPopup.style.display = 'grid';
-    buyPopup.setAttribute('aria-hidden','false');
-  });
-  closePop.addEventListener('click', ()=>{
-    buyPopup.style.display = 'none';
-    buyPopup.setAttribute('aria-hidden','true');
-  });
-
-  // GCash copy + popup
-  gcashRow.addEventListener('click', async ()=>{
-    try{ await navigator.clipboard.writeText('09162466318'); }catch(e){}
-    gcashPopup.style.display = 'grid';
-    gcashPopup.setAttribute('aria-hidden','false');
-  });
-  gcashOk.addEventListener('click', ()=>{ gcashPopup.style.display='none'; gcashPopup.setAttribute('aria-hidden','true'); });
-
-  // GoTyme copy + popup
-  goRow.addEventListener('click', async ()=>{
-    try{ await navigator.clipboard.writeText('014664932955'); }catch(e){}
-    goPopup.style.display = 'grid';
-    goPopup.setAttribute('aria-hidden','false');
-  });
-  goOk.addEventListener('click', ()=>{ goPopup.style.display='none'; goPopup.setAttribute('aria-hidden','true'); });
-
-  // Accessibility: close popups with Escape
-  document.addEventListener('keydown',(e)=>{
-    if(e.key==='Escape'){
-      [buyPopup,gcashPopup,goPopup].forEach(p=>{ if(p.style.display==='grid'){ p.style.display='none'; p.setAttribute('aria-hidden','true'); }});
-    }
-  });
-});
+})();
 </script>
 </body>
 </html>
